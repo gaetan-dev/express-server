@@ -4,13 +4,13 @@
     "description": "",
     "main": "src/boot.js",
     "scripts": {
-        "build": "npm run lint && cross-env NODE_ENV=production webpack --progress",
         "dev:debug": "nodemon --inspect src/boot.js",
         "dev:server": "nodemon src/boot.js",
         "dev:test": "npm test -- --watch",
         "dev:populatedb": "node populatedb mongodb://127.0.0.1/[collection]",
-        "lint": "standard --verbose | snazzy",
-        "test": "cross-env NODE_ENV=test jest"
+        "lint": "standard --verbose | snazzy || exit 0",
+        "test": "cross-env NODE_ENV=test jest",
+        "build": "npm run lint && cross-env NODE_ENV=production webpack --progress"
     },
     "babel": {
         "presets": [
